@@ -4,8 +4,9 @@
 Person(user, "User")
 Container(apiGateway, "API Gateway", "Facade", "Handles user requests")
 Container(authService, "Auth Service", "Microservice", "Works with AAA")
-Container(chatService, "Chat Service", "Microservice", "Handles chat requests")
 Container(userService, "User Service", "Microservice", "Handles user requests")
+Container(chatService, "Chat Service", "Microservice", "Handles chat requests")
+
 Container(subscriberService, "Subscriber Service", "Microservice", "Handles subscribe requests")
 
 Rel(user, apiGateway, "HTTP")
@@ -14,7 +15,6 @@ Rel(apiGateway, authService, "gRPC: requests")
 Rel(authService, userService, "gRPC: requests")
 
 Rel(apiGateway, userService, "gRPC: requests")
-Rel(apiGateway, chatService, "gRPC: requests")
 Rel(apiGateway, subscriberService, "gRPC: requests")
-
+Rel(apiGateway, chatService, "gRPC: requests")
 @enduml

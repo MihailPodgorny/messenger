@@ -1,0 +1,47 @@
+version: "3.3"
+
+services:
+  api_gateway:
+    image: api_gateway
+    container_name: api_gateway
+    build:
+      dockerfile: ../api_gateway/build/Dockerfile
+      context: ../api_gateway
+      args:
+        BASE_IMAGE_REGISTRY: registry.hub.docker.com
+
+  auth_service:
+    image: auth_svc
+    container_name: auth_svc
+    build:
+      dockerfile: ../auth_service/build/Dockerfile
+      context: ../auth_service
+      args:
+        BASE_IMAGE_REGISTRY: registry.hub.docker.com
+
+  chat_service:
+    image: chat_svc
+    container_name: chat_svc
+    build:
+      dockerfile: ../chat_service/build/Dockerfile
+      context: ../chat_service
+      args:
+        BASE_IMAGE_REGISTRY: registry.hub.docker.com
+
+  subscriber_service:
+    image: subscriber_svc
+    container_name: subscriber_svc
+    build:
+      dockerfile: ../subscriber_service/build/Dockerfile
+      context: ../subscriber_service
+      args:
+        BASE_IMAGE_REGISTRY: registry.hub.docker.com
+
+  user_service:
+    image: user_svc
+    container_name: user_svc
+    build:
+      dockerfile: ../user_service/build/Dockerfile
+      context: ../user_service
+      args:
+        BASE_IMAGE_REGISTRY: registry.hub.docker.com

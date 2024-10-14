@@ -4,9 +4,14 @@ SHELL=/bin/bash -e -o pipefail
 PWD = $(shell pwd)
 LINTER_VERSION = v1.61.1
 
+
+.PHONY: docker-build
+docker-build:
+	docker-compose -f deploy/docker-compose.yaml up -d --build
+
+
 out:
 	@mkdir -pv "$(@)"
-
 
 GO_BUILD = mkdir -pv "$(@)" && go build -ldflags="-w -s" -o "$(@)" ./...
 .PHONY: out/bin
