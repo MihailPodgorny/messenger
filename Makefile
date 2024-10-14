@@ -7,7 +7,7 @@ LINTER_VERSION = v1.61.1
 
 .PHONY: docker-build
 docker-build:
-	docker-compose -f deploy/docker-compose.yaml up -d --build
+	REGISTRY=docker.io/library docker-compose -f deploy/docker-compose.yaml up -d --build
 
 
 out:

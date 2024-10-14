@@ -8,7 +8,7 @@ services:
       dockerfile: ../api_gateway/build/Dockerfile
       context: ../api_gateway
       args:
-        BASE_IMAGE_REGISTRY: registry.hub.docker.com
+        BASE_IMAGE_REGISTRY: ${REGISTRY}
 
   auth_service:
     image: auth_svc
@@ -17,7 +17,7 @@ services:
       dockerfile: ../auth_service/build/Dockerfile
       context: ../auth_service
       args:
-        BASE_IMAGE_REGISTRY: registry.hub.docker.com
+        BASE_IMAGE_REGISTRY: ${REGISTRY}
 
   chat_service:
     image: chat_svc
@@ -26,7 +26,7 @@ services:
       dockerfile: ../chat_service/build/Dockerfile
       context: ../chat_service
       args:
-        BASE_IMAGE_REGISTRY: registry.hub.docker.com
+        BASE_IMAGE_REGISTRY: ${REGISTRY}
 
   subscriber_service:
     image: subscriber_svc
@@ -35,7 +35,7 @@ services:
       dockerfile: ../subscriber_service/build/Dockerfile
       context: ../subscriber_service
       args:
-        BASE_IMAGE_REGISTRY: registry.hub.docker.com
+        BASE_IMAGE_REGISTRY: ${REGISTRY}
 
   user_service:
     image: user_svc
@@ -44,4 +44,8 @@ services:
       dockerfile: ../user_service/build/Dockerfile
       context: ../user_service
       args:
-        BASE_IMAGE_REGISTRY: registry.hub.docker.com
+        BASE_IMAGE_REGISTRY: ${REGISTRY}
+
+#networks:
+#  appnet:
+#    driver: bridge

@@ -13,13 +13,13 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 COPY *.go ./
-RUN CGO_ENABLED=0 GOOS=linux go build -o /bin/main
+RUN CGO_ENABLED=0 GOOS=linux go build -o /bin/main ./cmd/auth/main.go
 
 #######################################
 # STAGE 2. FINAL STAGE
 #######################################
 
-FROM ${BASE_IMAGE_REGISTRY}/scratch  AS final
+FROM scratch  AS final
 
 WORKDIR /
 
