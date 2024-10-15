@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+// уникальное название пакета
+package api.proto.user.v1;
+
+// относительный путь proto
+import "api.proto.user.v1/messages.proto";
+
+// указываем расположение пакета для сгенерированных .pb.go файлов
+option go_package = "github.com/MihailPodgorny/messenger/user_service/pkg/api/user/v1;user";
+
+// UserService - серивис пользователей
+service UserService {
+
+  // CreateUser - метод создания пользователя
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
+
+  // GetUser - метод получения пользователя
+  rpc GetUser(GetUserRequest) returns (GetUserResponse) {}
+
+  // UpdateUser - метод обновления пользователя
+  rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse) {}
+
+  // SearchUser - метод поиска пользователя
+  rpc SearchUser(SearchUserRequest) returns (SearchUserResponse) {}
+}

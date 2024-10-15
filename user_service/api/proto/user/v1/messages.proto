@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+// уникальное название пакета
+package api.proto.user.v1;
+
+// указываем расположение пакета для сгенерированных .pb.go файлов
+option go_package = "github.com/MihailPodgorny/messenger/user_service/pkg/api/user/v1;user";
+
+
+
+message CreateUserRequest {
+  string name = 1;
+  string country = 2;
+  repeated string tags = 3;
+}
+
+
+message CreateUserResponse {
+  TODO
+}
